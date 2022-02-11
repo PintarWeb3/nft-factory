@@ -5,5 +5,6 @@ from brownie import TiketVip, accounts, config
 
 def main():
     print("Deploying TiketVIP...")
-    return TiketVip.deploy("https://tiket-vip.xyz/metadata/", {'from': accounts[0]})
+    owner = accounts.add(config['wallets']['owner_key'])
+    return TiketVip.deploy("https://tiket-vip.xyz/metadata/", owner, {'from': accounts[0]})
 
